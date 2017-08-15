@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Pricing Service</h1>
+            <p>We scan online web stores to alert you of price drops!
+                To get started just sign up, enter a url of an item to track, and
+                we will do the rest!
+            </p>
+            <p>
+                <a href="{{ url_for('users.register_user')}}" class="btn btn-primary btn-lg">Sign Up!</a>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <div class="page-header">
+        <h1>Alerts
+            <small>showing your alerts...</small>
+        </h1>
+    </div>
+
+
+    <div class="list-group">
+
+    {% for alert in alerts %}
+
+        <a href="{{ url_for('alerts.get_alert_page', alert_id=alert._id) }}" class="list-group-item {{ 'list-group-item-warning' if not alert.active else '' }}">
+            <h4>
+                {% if not alert.active %}
+                    <span class="glyphicon glyphicon-remove-circle"></span>
+                {% endif %}
+                Alert for {{ alert.item.name }}
+            </h4>
+            <p>Last price found: <strong>{{ alert.item.price }}</strong><br>
+            Last checked on <strong>{{ alert.last_checked.strftime("%m-%d-%Y at %H:%M") }}</strong> </p>
+        </a>
+
+    {% endfor %}
+
+    </div>
+    <a href="{{ url_for('alerts.create_alert') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Create Alert</a>
+
+{% endblock %}

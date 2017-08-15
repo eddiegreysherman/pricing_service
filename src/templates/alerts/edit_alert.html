@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+ <div class="page-header">
+        <h1>Edit Alert | {{ alert.item.name }}</h1>
+    </div>
+
+    <div class="form-size">
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Alert | Item Name</label>
+                <input type="text" class="form-control" name="name" id="name" value="{{ alert.item.name }}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="url">Alert | URL</label>
+                <input type="text" class="form-control" name="url" id="url" value="{{ alert.item.url }}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="price_limit">Alert | Price Limit</label>
+                <input type="text" class="form-control" name="price_limit" id="price_limit" value="{{ alert.price_limit }}" aria-describedby="priceLimitBlock">
+                <p id="priceLimitBlock" class="help-block">
+                    We'll send you an email when the price on the site reaches this price!
+                </p>
+            </div>
+            <button type="submit" class="btn btn-warning">Edit Alert</button>
+        </form>
+    </div>
+
+
+{% endblock %}
