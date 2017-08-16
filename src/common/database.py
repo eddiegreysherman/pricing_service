@@ -9,6 +9,7 @@ class Database(object):
     def initialize():
         client = pymongo.MongoClient(Database.URI)
         Database.DATABASE = os.environ.get("MONGODB_NAME")
+        Database.DATABASE.authenticate(os.environ.get("MONGODB_USER"), os.environ.get("MONGODB_PASS"))
 
     @staticmethod
     def insert(collection, data):
