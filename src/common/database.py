@@ -7,9 +7,10 @@ class Database(object):
 
     @staticmethod
     def initialize():
-        client = pymongo.MongoClient(Database.URI, os.environ.get("MONGODB_PORT"))
-        Database.DATABASE = client[os.environ.get("MONGODB_NAME")]
+        connection = pymongo.MongoClient(Database.URI, os.environ.get("MONGODB_PORT"))
+        Database.DATABASE = connection[os.environ.get("MONGODB_NAME")]
         Database.DATABASE.authenticate(os.environ.get("MONGODB_USER"), os.environ.get("MONGODB_PASS"))
+
 
     @staticmethod
     def insert(collection, data):
