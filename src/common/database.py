@@ -9,7 +9,7 @@ class Database(object):
     def initialize():
         connection = pymongo.MongoClient(Database.URI, int(os.environ.get("MONGODB_PORT")))
         Database.DATABASE = connection[os.environ.get("MONGODB_NAME")]
-        Database.DATABASE.authenticate(os.environ.get("MONGODB_USER"), os.environ.get("MONGODB_PASS"))
+        #Database.DATABASE.authenticate(os.environ.get("MONGODB_USER"), os.environ.get("MONGODB_PASS"))
 
 
     @staticmethod
