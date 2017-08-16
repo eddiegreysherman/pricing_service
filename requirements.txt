@@ -3,3 +3,4 @@ pymongo
 beautifulsoup4
 passlib
 requests
+uwsgi
